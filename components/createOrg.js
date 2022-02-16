@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react'
 import { useRouter } from 'next/router'
-import styles from '../styles/create.module.css'
+import styles from '../styles/Create.module.css'
 import { getFirestore, setDoc, doc, updateDoc, getDoc, collection, query, where } from 'firebase/firestore'
 import Loader from './loader';
 import Dashboard from './me';
