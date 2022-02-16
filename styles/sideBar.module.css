@@ -31,6 +31,8 @@
 }
 .navs{
     height: 100%;
+    width: 100%;
+    margin-left: -50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -40,13 +42,11 @@
 .nav{
     width: 80%;
     cursor: pointer;
-    margin-left: -150%;
 }
 .modeNav{
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    margin-left: -150%;
 }
 .nav:hover{
     color: grey;

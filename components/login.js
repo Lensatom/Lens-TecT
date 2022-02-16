@@ -42,7 +42,7 @@ function Login(props) {
     }
     setReady(true)
   }
-  useEffect(() => find(), [])
+  useEffect(() => find())
   
   
   const emailChange = event => {

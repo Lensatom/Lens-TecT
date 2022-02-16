@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import Image from "next/image"
 import styles from '../styles/Loader.module.css'
 
 function Loader() {
@@ -6,7 +7,7 @@ function Loader() {
     return (
         <div className={styles.load}>
             <title> TecT - Loading... </title>
-            <img src="Rhombus.gif" alt="Loading" className={styles.leader}/>
+            <Image src="/Rhombus.gif" alt="Loading" width={20} height={20} />
             <p className='styles.text'> Please wait </p>
         </div>
     )

@@ -36,7 +36,7 @@ function PreChat(props) {
             people.push(chat)
         })
     }
-    useMemo(() => {display()})
+    display()
 
     if (chat) {
         return( <Chat db={[chat[0], chat[1]]} init={chat[2]} data={data} relate="known" />)

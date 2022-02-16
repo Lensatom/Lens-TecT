@@ -44,7 +44,7 @@ function Chat(props) {
     }
     useEffect(() => {
         start()
-    }, []);
+    });
 
     const changeMessage = event => {
         if (message != "sending") {

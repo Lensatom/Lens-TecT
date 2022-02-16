@@ -1,15 +1,13 @@
 import styles from '../styles/Dashboard.module.css'
-import { useState, useEffect, useMemo } from 'react'
-import { useRouter } from 'next/router'
+import { useState } from 'react'
 import SideBarOrg from './sideBarOrg'
 import Home from './home'
 import Settings from './settings'
 import Details from './details'
 import Search from './search'
-import { initializeApp } from 'firebase/app';
-import { getFirestore, setDoc, doc, updateDoc, getDoc, collection } from 'firebase/firestore'
+import Image from "next/image"
+import { getFirestore } from 'firebase/firestore'
 import Desk from './desk'
-import Chat from './chat'
 import Login from './login'
 
 const firestore = getFirestore()
@@ -76,10 +74,10 @@ function WorkHeader(props) {
                         <p className={styles.motto}> ...{data.motto} </p>
                     </div>
                     <ul className={styles.nav}>
-                        <img className={styles.list} src="home.png" onClick={toHome} title="Home" alt="Home" width="3%" />
-                        <img className={styles.list} src="search.png" onClick={toSearch} title="Search" alt="Search" width="3%" />
-                        <img className={styles.list} src="setting.png" onClick={toSettings} title="Settings" alt="Settings" width="3%" />
-                        <img className={styles.list} src="logout.png" onClick={logOut} title="Log out" alt="Log out" width="3%" />
+                        <Image className={styles.list} src="/home.png" onClick={toHome} title="Home" alt="Home" width={20} height={20} />
+                        <Image className={styles.list} src="/search.png" onClick={toSearch} title="Search" alt="Search" width={20} height={20} />
+                        <Image className={styles.list} src="/setting.png" onClick={toSettings} title="Settings" alt="Settings" width={20} height={20} />
+                        <Image className={styles.list} src="/logout.png" onClick={logOut} title="Log out" alt="Log out" width={20} height={20} />
                     </ul>
                 </div>
                 <SideBarOrg 

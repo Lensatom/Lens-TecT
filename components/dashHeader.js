@@ -1,17 +1,15 @@
 import styles from '../styles/Dashboard.module.css'
-import { useState, useEffect, useMemo } from 'react'
-import { useRouter } from 'next/router'
+import { useState, useEffect} from 'react'
+import Image from "next/image"
 import WorkHeader from './workHeader'
 import SideBar from './sideBar'
 import Home from './home'
 import Search from './search'
 import Settings from './settings'
 import Profile from './profile'
-import { initializeApp } from 'firebase/app';
-import { getFirestore, query, getDocs, where, collection, updateDoc, doc} from 'firebase/firestore'
+import { getFirestore, doc} from 'firebase/firestore'
 import Loader from './loader'
 import PreChat from './preChat'
-import Login from './login'
 import Index from '../pages'
 
 const firestore = getFirestore()
@@ -84,10 +82,10 @@ function DashHeader(props) {
                 <div className={styles.header}>
                 <h3 className={styles.name}> {greeting} {data.firstName} </h3>
                 <ul className={styles.nav}>
-                    <img className={styles.list} src="home.png" onClick={toHome} title="Home" alt="Home" width="3%" />
-                    <img className={styles.list} src="search.png" onClick={toSearch} title="Search" alt="Search" width="3%" />
-                    <img className={styles.list} src="setting.png" onClick={toSettings} title="Settings" alt="Settings" width="3%" />
-                    <img className={styles.list} src="logout.png" onClick={logOut} title="Log out" alt="Log out" width="3%" />
+                    <Image className={styles.list} src="/home.png" onClick={toHome} title="Home" alt="Home" width={20} height={20} />
+                    <Image className={styles.list} src="/search.png" onClick={toSearch} title="Search" alt="Search" width={20} height={20} />
+                    <Image className={styles.list} src="/setting.png" onClick={toSettings} title="Settings" alt="Settings" width={20} height={20} />
+                    <Image className={styles.list} src="/logout.png" onClick={logOut} title="Log out" alt="Log out" width={20} height={20} />
                 </ul>
                 </div>
                 <SideBar data={data} toProfile={toProfile} toHome={toHome} toChat={toChat} mode={mode} modeTitle={modeTitle}/>

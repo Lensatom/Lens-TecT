@@ -19,7 +19,7 @@ function Dashboard(props) {
 
     const [data, setData] = useState("")
     
-    useEffect(async () => {
+    const find = async () => {
         const person = query(
             collection(firestore, "users"),
             where ("email", "==", localStorage.email)
@@ -38,7 +38,8 @@ function Dashboard(props) {
                 setData(snap.data())
             })
         }
-    }, [])
+    }
+    find()
 
     if (props.load) {
         return <Loader />

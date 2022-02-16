@@ -108,8 +108,7 @@ function Search( props ) {
                     <input type="text" placeholder="Search Anything" value={searched} onChange={fill} className={styles.input} />
                 </form>
                 {result.map(rlt => 
-                    <div className={styles.result}>
-                        
+                    <div className={styles.result} key={rlt.handle}>
                         <div className={styles.person}>
                             <h2 className={styles.head} style={rlt}> {rlt.firstName[0]} </h2>
                             <h3> {result[0].firstName} {rlt.lastName} </h3>
