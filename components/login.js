@@ -123,26 +123,20 @@ function Login(props) {
     } else if (log == false) {
       return ( 
         <div className={styles.page}>
-          <title> TecT </title>
-          <div className={styles.login}>
-            <h2 className={styles.heading}> Login </h2>
-            <form onSubmit={dataCheck} className={styles.form}>
-              <label className={styles.label}> Email: </label>
-              <input type="email" placeholder="someone@example.com" value={email} onChange={emailChange} className={styles.input} required/><br />
-              <label className={styles.label}> Password: </label>
-              <input type="password" placeholder="********" value={password} onChange={passChange} className={styles.input} required/> <br />
-              <input type="checkbox" onChange={organization}/> This is an organization
-              <button type="submit" onSubmit={dataCheck} className={styles.done}> Done </button>
-            </form>
-          </div>
-
-          <div className={styles.links}>
-            <button className={styles.link} onClick={props.createUser}> Create Account </button>
-            <button className={styles.link}> About Us </button>
-            <button className={styles.link}> Contact Us </button>
-            <button className={styles.link} onClick={props.forgotPassword}> Forgot Password? </button>
-          </div>
-
+          <title> Acices </title>
+          <b className={styles.heading}> Acices </b>
+          <span className={styles.message}> Says Hi </span>
+          <form onSubmit={dataCheck} className={styles.form}>
+            <label className={styles.label}> Email Address </label>
+            <input type="email" value={email} onChange={emailChange} className={styles.input} required/>
+            <label className={styles.label}> Password </label>
+            <input type="password" value={password} onChange={passChange} className={styles.input} required/>
+            <u className={styles.aux}> Forgot Password? </u>
+            <u className={styles.aux}> Sign Up </u>
+            <input className={styles.check} type="checkbox" onChange={organization}/>
+            <span className={styles.des}> This is an organization </span>
+            <button className={styles.button} type="submit" onSubmit={dataCheck}> Sign In </button>
+          </form>
           {loader}
         </div>
       )

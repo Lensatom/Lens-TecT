@@ -1,0 +1,12 @@
+<svg id="hamburger" xmlns="http://www.w3.org/2000/svg" width="1500" height="1500" viewBox="0 0 1500 1500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M412.149,313.631L1150.37,1051.85a43.5,43.5,0,0,1-61.52,61.52L350.631,375.149A43.5,43.5,0,0,1,412.149,313.631Z"/>
+  <path id="Rectangle_1_copy_2" data-name="Rectangle 1 copy 2" class="cls-1" d="M350.634,1051.85L1088.85,313.628a43.5,43.5,0,0,1,61.52,61.518L412.153,1113.37A43.5,43.5,0,0,1,350.634,1051.85Z"/>
+</svg>
