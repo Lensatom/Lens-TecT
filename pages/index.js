@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import Manager from './manager';
+import Manager from '../components/manager';
 
 const firebaseApp = initializeApp({
     apiKey: "AIzaSyDSvZthbh3Dv_05OPwOSq95OysJtjLxCC0",

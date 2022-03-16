@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Image from 'next/image'
 import styles from '../styles/Pages.module.css'
-import Manager from '../pages/manager'
+import Manager from './manager'
 
 function Home(props) {
     let data = props.data

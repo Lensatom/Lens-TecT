@@ -3,7 +3,7 @@ import Loader from '../loader'
 import Image from 'next/image'
 import styles from '../../styles/Login.module.css'
 import { getFirestore, query, where, updateDoc, getDocs, collection, doc } from 'firebase/firestore'
-import Manager from '../../pages/manager'
+import Manager from '../manager'
 
 const firestore = getFirestore()
 
