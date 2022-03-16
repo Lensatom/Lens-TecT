@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import styles from '../../styles/Create.module.css'
 import { getFirestore, setDoc, doc, updateDoc, getDoc, collection, query, where } from 'firebase/firestore'
 import Loader from '../loader';
-import Dashboard from '../me';
+import Dashboard from '../fetcher';
 
 function CreateOrg( props ) {
 

@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import DashHeader from './dashHeader'
+import DashHeader from './hamburger'
 import Loader from './loader'
 import { getFirestore, query, getDocs, collection, where } from 'firebase/firestore'
+import Home from './home'
 
 const firebaseApp = {
     apiKey: "AIzaSyDSvZthbh3Dv_05OPwOSq95OysJtjLxCC0",
@@ -40,21 +41,16 @@ function Dashboard(props) {
     }
     find()
 
-    if (props.load) {
-        return <Loader />
-    }
     if (data) {
         return (
             <>
-                <title> TecT </title>
-                <DashHeader data={data}/>
+                <title> Acies| Home</title>
+                <Home data={data}/>
             </>
         )
     } else {
         return (
-            <>
-                <Loader />
-            </>
+            <Loader />
         )
     }
 }

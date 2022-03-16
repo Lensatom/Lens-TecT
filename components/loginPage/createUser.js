@@ -4,7 +4,7 @@ import styles from '../../styles/Create.module.css'
 import Loader from '../loader'
 import { initializeApp, setLogLevel } from 'firebase/app'
 import { getFirestore, updateDoc, addDoc, collection, setDoc, doc, query, where } from 'firebase/firestore'
-import Dashboard from '../me'
+import Dashboard from '../fetcher'
 
 const firebaseApp = {
     apiKey: "AIzaSyDSvZthbh3Dv_05OPwOSq95OysJtjLxCC0",

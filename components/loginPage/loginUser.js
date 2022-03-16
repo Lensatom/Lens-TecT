@@ -12,8 +12,7 @@ function LoginUser(props) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [luggage, setLug] = useState()
-  const [error, setError] = useState("")
-  const [loader, setLoader] = useState("")
+  const [error, setError] = useState()
   const [log, setLog] = useState()
   const [src, setSrc] = useState("/more.png")
 
@@ -43,11 +42,14 @@ function LoginUser(props) {
         collection(firestore, "users"),
         where ("email", "==", localStorage.email, "&&", "code", "==", localStorage.code)
       )
-      if (person.exists) {
-        setLug([16, []])
-      } else {
-        setLog(false)
-      }
+      const personSnap = await getDocs(person)
+      const personal = personSnap.forEach(async snap => {
+        if (snap.data().code == localStorage.code) {
+          setLug([16, []])
+        } else {
+          setLog(false)
+        }
+      })  
     } else {
       setLog(false)
     }
@@ -73,7 +75,8 @@ function LoginUser(props) {
   const dataCheck = async event => {
     
     event.preventDefault()
-    setLoader(<Loader />)
+    document.getElementById("password").blur()
+    document.getElementById("username").blur()
 
     let code;
     const coding = () => {
@@ -98,11 +101,15 @@ function LoginUser(props) {
     )
     const personSnap = await getDocs(person);
     const personal = personSnap.forEach(async snap => {
-      const users = doc(firestore, `users/${snap.data().handle}`)
-      const coded = await updateDoc (users, {code: code})
-      localStorage.setItem("email", email)
-      localStorage.setItem("code", code)
-      setDetour(<Manager i={16} info={[]} />)
+      if (snap.data().password == password) {
+        const users = doc(firestore, `users/${snap.data().handle}`)
+        const coded = await updateDoc (users, {code: code})
+        localStorage.setItem("email", email)
+        localStorage.setItem("code", code)
+        setLug([16, []])
+      } else {
+          setError("You Provided Unmatching Information")
+      }
     })
     setTimeout(() => {setError("")}, 4000)
   }
@@ -115,19 +122,18 @@ function LoginUser(props) {
         <div className={styles.page} id="blur" onClick={close}>
           <title> Acies| login </title>
           <b className={styles.heading}> Acies </b>
-          <span className={styles.message}> Says Hi </span>
+          <span className={styles.message}> By Lens </span>
           <form onSubmit={dataCheck} className={styles.form}>
             <label className={styles.label}> Email Address </label>
-            <input type="email" value={email} placeholder="acies@gmail.com" onChange={emailChange} className={styles.input} required/>
+            <input type="email" value={email} id="username" placeholder="acies@gmail.com" onChange={emailChange} className={styles.input} required/>
             <label className={styles.label}> Password </label>
-            <input type="password" value={password} placeholder="********" onChange={passChange} className={styles.input} required/>
+            <input type="password" value={password} id="password" placeholder="********" onChange={passChange} className={styles.input} required/>
+            <span className={styles.error}> {error} </span>
             <div className={styles.div}>
               <button className={styles.button} type="submit" onSubmit={dataCheck} > Log In </button>
               <Image src={src} width={20} height={20} onClick={dialog} id="ham" />
             </div>
           </form>
-          
-          {loader}
         </div>
         <div className={styles.dialog} id="dialog">
           <span className={styles.des}> Organization Account </span>

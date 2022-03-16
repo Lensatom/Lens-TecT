@@ -9,7 +9,8 @@ import Profile from '../components/profile'
 import Home from '../components/home'
 import Search from '../components/search'
 import About from '../components/loginPage/about'
-import Dashboard from '../components/me'
+import Dashboard from '../components/fetcher'
+import Hamburger from '../components/hamburger'
 
 function Manager({i, info}) {
   const components = {
@@ -28,7 +29,7 @@ function Manager({i, info}) {
     12: <Search info={info} />,
     // 13: <Upcoming info={props.info} />,
     // 14: <Pinned info={props.info} />,
-    // 15: <Hamburger info={props.info} />
+    15: <Hamburger info={info} />,
     16: <Dashboard info={info} />
   }  
 

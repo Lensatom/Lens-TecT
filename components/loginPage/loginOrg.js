@@ -2,7 +2,7 @@ import { useState, useEffect} from 'react'
 import Loader from '../loader'
 import styles from '../../styles/Login.module.css'
 import { getFirestore, query, where, updateDoc, getDocs, collection, doc } from 'firebase/firestore'
-import Dashboard from '../me'
+import Dashboard from '../fetcher'
 import LoginUser from './loginUser'
 
 const firestore = getFirestore()

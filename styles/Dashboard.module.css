@@ -1,56 +1,27 @@
-.header{
-  position: fixed;
-  top: 0%;
-  left: 0%;
-  width: 96%;
-  height: 12%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0% 2%;
+.page{
+  position: absolute;
+  width: 90%;
+  height: 85%;
+  animation: slide 0.5s forwards;
   background-color: midnightblue;
-  color: white;
+  padding: 10% 5%;
 }
-
-.head{
-  position: relative;
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  align-items: left;
-  justify-content: space-between;
+@keyframes slide {
+  from{
+    left: -100%;
+  }
+  to{
+    left: 0%;
+  }
 }
-
-.nav{
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.name{
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
 }
 .list{
   list-style: none;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: rgb(240, 240, 240);
   cursor: pointer;
-  filter: invert(100%);
-}
-.list:hover{
-  color: white;
-}
-
-.name{
-  font-size: 20px;
-  text-transform: capitalize;
-  color: white;
-}
-
-.a{
-  color:rgb(240, 240, 240);
-}
-
-.motto {
-  font-family: mv boli;
-  font-size: 15px;
-  color: rgb(210, 201, 223);
-  margin-top: -5%;
+  filter: invert(90%);
 }
