@@ -1,9 +1,9 @@
 import { useState, useEffect} from 'react'
 import { useRouter } from 'next/router'
-import styles from '../styles/Create.module.css'
+import styles from '../../styles/Create.module.css'
 import { getFirestore, setDoc, doc, updateDoc, getDoc, collection, query, where } from 'firebase/firestore'
-import Loader from './loader';
-import Dashboard from './me';
+import Loader from '../loader';
+import Dashboard from '../me';
 
 function CreateOrg( props ) {
 
@@ -185,19 +185,6 @@ function CreateOrg( props ) {
                             <u className={styles.button} onClick={props.createUser}> Create Personal Account </u>
                         </div>
                     </form>
-                </div>
-
-                <div className={styles.description}>
-                    
-                    <h3> Organization Account Features </h3>
-                    <ul className={styles.lists}>
-                        <li className={styles.list}> Create malpractice-free examinations and post awarenesses. </li>
-                        <li className={styles.list}> One-person moderation: reduces the stress of moderation and helping candidates get the best of attention at the same time. </li>
-                        <li className={styles.list}> Helps to keep examination data safe, secure and orderly for easy exploration and release. </li>
-                        <li className={styles.list}> Places a double level security on certain session so as to ensure employee and management privacy on the organization account. </li>
-                        <li className={styles.list}> Chatting and other conventional services are also very well available. </li>
-                    </ul>
-                    <button className={styles.link} onClick={props.login}> Back </button>
                 </div>
                 {loader}
             </div>

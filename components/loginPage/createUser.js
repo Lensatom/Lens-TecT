@@ -1,10 +1,10 @@
 import { useState, useEffect} from 'react'
 import { useRouter } from 'next/router'
-import styles from '../styles/Create.module.css'
-import Loader from './loader'
+import styles from '../../styles/Create.module.css'
+import Loader from '../loader'
 import { initializeApp, setLogLevel } from 'firebase/app'
 import { getFirestore, updateDoc, addDoc, collection, setDoc, doc, query, where } from 'firebase/firestore'
-import Dashboard from './me'
+import Dashboard from '../me'
 
 const firebaseApp = {
     apiKey: "AIzaSyDSvZthbh3Dv_05OPwOSq95OysJtjLxCC0",
@@ -192,20 +192,6 @@ function CreateUser( props ) {
                             <u className={styles.button} onClick={props.createOrg}> Create Organization Account </u>
                         </div>
                     </form>
-                </div>
-
-                <div className={styles.description}>
-                    
-                    <h3> User Account Features </h3>
-                    <ul className={styles.lists}>
-                        <li className={styles.list}> Lets you to write an examination anywhere in the world at any time. </li>
-                        <li className={styles.list}> Helps you to meet other people online, chat with them therefore, widening your exposure spectrum </li>
-                        <li className={styles.list}> On a user account, you can join and/or create groups for studying, educational discussions, e.t.c </li>
-                        <li className={styles.list}> Allows for you to follow organization accounts so as to get updates as quick as possible as well as user accounts enabling you to share and receive information faster </li>
-                        <li className={styles.list}> Gives you a mean performance score that keeps you on track </li>
-                        <li className={styles.list}> Provides numerous privacy settings enabling you to personlize your account as much as possible </li>
-                    </ul>
-                    <button className={styles.link} onClick={props.login}> Back </button>
                 </div>
                 {loader}
             </div>

@@ -1,17 +1,15 @@
-import { useState, useEffect, useMemo} from 'react'
-import { useRouter } from 'next/router'
-import Loader from './loader'
-import AnotherAccount from './anotherAccount'
-import styles from '../styles/Login.module.css'
-import { getFirestore, query, where, updateDoc, getDocs, collection, addDoc, doc } from 'firebase/firestore'
-import Dashboard from './me'
-import CreateUser from './createUser'
+import { useState, useEffect} from 'react'
+import Loader from '../loader'
+import styles from '../../styles/Login.module.css'
+import { getFirestore, query, where, updateDoc, getDocs, collection, doc } from 'firebase/firestore'
+import Dashboard from '../me'
+import LoginUser from './loginUser'
 
 const firestore = getFirestore()
 
-function Login(props) {
+function LoginOrg(props) {
 
-  const [org, setOrg] = useState(false)
+  const [org, setOrg] = useState()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [codec, setCodec] = useState("")
@@ -44,15 +42,18 @@ function Login(props) {
   }
   useEffect(() => find())
   
-  
+  const orgChange = event => {
+    setOrg(event.target.value)
+  }
   const emailChange = event => {
     setEmail(event.target.value)
   }
   const passChange = event => {
     setPassword(event.target.value)
   }
+  
   const organization = () => {
-    setOrg(!org)
+    // setOrg(!org)
   }
   const dataCheck = async event => {
     
@@ -75,46 +76,24 @@ function Login(props) {
       }
     }
     coding()
-
-    if (org == false) {
-      const person = query(
-        collection(firestore, "users"),
-        where ("email", "==", email)
-      )
-      const personSnap = await getDocs(person);
-      const personal = personSnap.forEach(async snap => {
-        if (snap.data().password == password) {
-          const users = doc(firestore, `users/${snap.data().handle}`)
-          const coded = await updateDoc (users, {code: code})
-          localStorage.setItem("email", email)
-          localStorage.setItem("code", code)
-          setLog(true)
-        } else {
-          setLoader("")
-          setCodec("Information provided does not match any existing accounts")
-        }
-      })
-    } else if (org == true) {
-      const org = query(
+    const org = query(
         collection(firestore, "orgs"),
         where ("email", "==", email )
-      )
-      const orgSnap = await getDocs(org);
-      const orgal = orgSnap.forEach(async snap => {
+    )
+    const orgSnap = await getDocs(org);
+    const orgal = orgSnap.forEach(async snap => {
         if (snap.data().password == password) {
-          const orgs = doc(firestore, `orgs/${snap.data().handle}`)
-          const coded = await updateDoc(orgs, {code: code})
-          localStorage.setItem("email", email)
-          localStorage.setItem("code", code)
-          setLog(true)
+            const orgs = doc(firestore, `orgs/${snap.data().handle}`)
+            const coded = await updateDoc(orgs, {code: code})
+            localStorage.setItem("email", email)
+            localStorage.setItem("code", code)
+            setLog(true)
         }
         else {
-          setLoader("")
-          setCodec("Information provided does not match any existing accounts")
+            setLoader("")
+            setCodec("Information provided does not match any existing accounts")
         }
-      })
-    } 
-    setTimeout(() => {setCodec("")}, 4000)
+    })
   }
 
   if (ready == true) {
@@ -127,6 +106,8 @@ function Login(props) {
           <b className={styles.heading}> Acices </b>
           <span className={styles.message}> Says Hi </span>
           <form onSubmit={dataCheck} className={styles.form}>
+            <label className={styles.label}> Organization </label>
+            <input type="email" value={org} onChange={orgChange} className={styles.input} required/>
             <label className={styles.label}> Email Address </label>
             <input type="email" value={email} onChange={emailChange} className={styles.input} required/>
             <label className={styles.label}> Password </label>
@@ -134,16 +115,18 @@ function Login(props) {
             <u className={styles.aux}> Forgot Password? </u>
             <u className={styles.aux}> Sign Up </u>
             <input className={styles.check} type="checkbox" onChange={organization}/>
-            <span className={styles.des}> This is an organization </span>
+            <span className={styles.des}> Personal Account </span>
             <button className={styles.button} type="submit" onSubmit={dataCheck}> Sign In </button>
           </form>
           {loader}
         </div>
       )
+    } else if (org == false) {
+      <LoginUser />
     }
   } else {
     return <Loader />
   }
 }
 
-export default Login
+export default LoginOrg

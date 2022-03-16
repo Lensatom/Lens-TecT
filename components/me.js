@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import DashHeader from './dashHeader'
 import Loader from './loader'
-import { initializeApp } from 'firebase/app';
-import { getFirestore, query, addDoc, getDocs, collection, where } from 'firebase/firestore'
+import { getFirestore, query, getDocs, collection, where } from 'firebase/firestore'
 
 const firebaseApp = {
     apiKey: "AIzaSyDSvZthbh3Dv_05OPwOSq95OysJtjLxCC0",

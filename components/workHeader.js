@@ -8,7 +8,7 @@ import Search from './search'
 import Image from "next/image"
 import { getFirestore } from 'firebase/firestore'
 import Desk from './desk'
-import Login from './login'
+import LoginUser from './loginPage/loginUser'
 
 const firestore = getFirestore()
 
@@ -91,7 +91,7 @@ function WorkHeader(props) {
             </>
         )
     } else {
-        return <Login />
+        return <LoginUser />
     }
 }
 

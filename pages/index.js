@@ -1,9 +1,5 @@
-import { initializeApp } from 'firebase/app'
-import { useState, useEffect} from 'react'
-import CreateOrg from '../components/createOrg'
-import CreateUser from '../components/createUser'
-import ForgotPassword from '../components/forgotPassword'
-import Login from '../components/login'
+import { initializeApp } from 'firebase/app';
+import Manager from './manager';
 
 const firebaseApp = initializeApp({
     apiKey: "AIzaSyDSvZthbh3Dv_05OPwOSq95OysJtjLxCC0",
@@ -15,27 +11,12 @@ const firebaseApp = initializeApp({
     measurementId: "G-N4WMVKMBLL"
 })
 
-function Index({ ip }) {
+function Index(props) {
   
-  const login = () => {
-    setBody(<Login forgotPassword={forgotPassword} createUser={createUser}/>)
-  }
-  const createOrg = () => {
-    setBody(<CreateOrg forgotPassword={forgotPassword} createUser={createUser} login={login} />)
-  }
-  const createUser = () => {
-    setBody(<CreateUser forgotPassword={forgotPassword} createOrg={createOrg} login={login} />)
-  }
-  const forgotPassword = () => {
-    setBody(<ForgotPassword login={login} createUser={createUser}/>)
-  }
-
-  const [body, setBody] = useState(<Login forgotPassword={forgotPassword} createUser={createUser}/>)
   return (
-    <>
-      {body}
-    </>
+    <Manager i={0} info={[]} />
   )
+
 }
 
 export default Index

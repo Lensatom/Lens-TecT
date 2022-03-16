@@ -3,7 +3,7 @@
         position: absolute;
         width: 100%;
         min-height: 100%;
-        background-color: #0F499F;
+        background: linear-gradient(225deg, #9f0f3f, #460f9f);
     }
     .heading{
         position: relative;
@@ -44,62 +44,60 @@
         font-weight: normal;
         font-size: 24px;
         line-height: 28px;
-        color: #E1E1E1;
+        color: #f8f7f7;
     }
     .input{
         position: relative;
         width: 88%;
         height: 40px;
-        margin: 0% 5% 2% 5%;
+        margin: 0% 5% 1% 5%;
         border: 0;
+        border-top: 1px solid white;
         padding: 1%;
-        background: #689BE8;
-        border-radius: 14px;
+        background: transparent;
+        border-radius: 0px;
+        color: rgb(161, 161, 161)
     }
-    .aux{
+    .div{
         position: relative;
-        width: 40%;
-        float: right;
-        height: 21px;
-        margin: 5% 5% 0% 5%;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 21px;
-        color: #FFFFFF;
-    }
-    .check{
-        position: relative;
-        width: 23px;
-        height: 22px;
-        margin-left: 5%;
-        margin-top: 10%;
-        background: #C4C4C4;
-    }
-    .des{
-        position: relative;
-        margin-left: 1%;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 21px;
-        color: #FFFFFF;
-    }
-    .button{
-        position: relative;
-        width: 60%;
+        width: 50%;
         height: 50px;
-        margin-left: 20%;
-        margin-top: 20%;
+        margin-left: 25%;
+        margin-top: 10%;
         margin-bottom: 10%;
         background: #E1E1E1;
-        border: 0;
         box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 21px;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 30px;
-        line-height: 40px;
-        color: #0F499F;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .button{
+        border: 0;
+        width: 60%;
+        font-size: 20px;
+        font-weight: bolder;
+        cursor: pointer;
+        background-color: transparent;
+    }
+    .cls{
+        position: absolute;
+    }
+    .dialog{
+        position: absolute;
+        display: none;
+        width: 30%;
+        height: 30%;
+        left: 50%;
+        top: 50%;
+        color: black;
+        background-color: rgb(238, 238, 238);
+        border-radius: 20px;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: baseline;
+        font-size: 14px;
+        padding: 1%;
+        box-shadow: 0px 0px 10px 1px rgb(0, 0, 0);
     }
 }
