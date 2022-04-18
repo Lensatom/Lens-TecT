@@ -47,7 +47,7 @@ function Home(props) {
       <Header data={data}/>
       <div className={styles.slideshow}> 
         {posts.map(post =>
-        <div className={styles.post}>
+        <div className={styles.post} key={post.name}>
           <div className={styles.title}>
             <img src={post.pic} className={styles.pic} />
             <div className={styles.des}>

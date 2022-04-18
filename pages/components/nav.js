@@ -35,12 +35,12 @@ function Nav() {
 
   return (
     <div className={styles.page}>
-      <Image width={25} height={25} src='/home.svg' onClick={() => {route('/')}} />
-      <Image width={25} height={25} src='/profile.png' onClick={() => {route('profile')}} />
-      <Image width={25} height={25} src='/test.svg' />
-      <Image width={25} height={25} src='/chat.svg' />
-      <Image width={25} height={25} src='/pin.svg' />
-      <Image width={25} height={25} src='/settings.svg' onClick={() => {route('settings')}} />
+      <Image width={25} height={25} src='/home.svg' onClick={() => {route('/')}} alt='Home' />
+      <Image width={25} height={25} src='/profile.png' onClick={() => {route('profile')}} alt='Profile' />
+      <Image width={25} height={25} src='/test.svg' alt='Test' />
+      <Image width={25} height={25} src='/chat.svg' alt='Chat' />
+      <Image width={25} height={25} src='/pin.svg' alt='Pinned' />
+      <Image width={25} height={25} src='/settings.svg' onClick={() => {route('settings')}} alt='Settings' />
       <Image width={25} height={25} src={modeSrc} onClick={changeMode} />
     </div>
   )

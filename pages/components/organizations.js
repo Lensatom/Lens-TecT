@@ -11,17 +11,15 @@ function  Organizations() {
       setData([])
       setDropDown(<>&#916;</>)
     } else {
-      const info = {
-        'First Name': 'Ayomide',
-        'Middle Name': 'Samuel',
-        'Last Name': 'Atayero',
-        'Gender': 'Male',
-        'Date Of Birth': 'June 20 2004',
-      }
+      const info = ['', 'Department Of Chemistry, OAU', 'Department Of Physics, OAU', 'Department Of Zoology, OAU', 'Bestbrains Tutorials']
       const keys = Object.keys(info)
       let listed = []
-      for (let i = 0; i < keys.length; i++) {
-        listed.push({title: keys[i], value: info[keys[i]]});
+      for (let i = 1; i < keys.length; i++) {
+        if (info[keys[i]].length > 15) {
+          listed.push({title: keys[i], value: `${info[keys[i]].slice(0, 25)}...`});
+        } else {
+          listed.push({title: keys[i], value: info[keys[i]]});
+        }
       }
       setData(listed)
       setDropDown(<>&#8711;</>)
@@ -31,13 +29,14 @@ function  Organizations() {
   return (
     <div className={styles.page}>
       <span className='flex'> 
-        <b> User Information </b>
+        <b> Organizations </b>
         <span className='small' onClick={getOrRemoveUserData}> {dropDown} </span>
       </span>
       {data.map(d => 
-        <span className='flex' style={{marginTop: '20px'}}>
+        <span className='flex' style={{marginTop: '20px'}} key={d['title']}>
           <span> {d['title']} </span>
           <span style={{color: 'grey', textAlign: 'right'}}> {d['value']} </span>
+          <span> X </span>
         </span>
       )}   
     </div>

@@ -33,9 +33,9 @@ function Header(props) {
   return (
     <>
       <div className={styles.header} > 
-        <Image className={styles.list} src={moreSrc} width={20} height={20} onClick={displayNav} />
+        <Image className={styles.list} src={moreSrc} width={20} height={20} onClick={displayNav} alt='More'/>
         <span className={styles.name}> Atayero </span>
-        <Image className={styles.list} src={searchSrc} width={20} height={20} onClick={displaySearch} />
+        <Image className={styles.list} src={searchSrc} width={20} height={20} onClick={displaySearch} alt='Search' />
       </div>
       {nav}
       {search}

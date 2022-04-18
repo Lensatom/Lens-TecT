@@ -4,6 +4,7 @@ import Header from './components/header'
 import styles from '../styles/Pages.module.css'
 import EditProfile from './components/editProfile'
 import Organizations from './components/organizations'
+import Emails from './components/emails'
 
 function Profile() {
   return (
@@ -24,6 +25,7 @@ function Profile() {
         </div>
         <div style={{marginTop: '50px', width: '100%'}}>
           <EditProfile />
+          <Emails />
           <Organizations />
         </div>
       </div>

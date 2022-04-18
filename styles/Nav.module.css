@@ -3,13 +3,13 @@
   height: 95%;
   width: 80px;
   left: -100px;
-  top: 60px;
-  background-color: pink;
+  top: 61px;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  /* box-shadow:1px 0.5px 3px 0.5px black; */
+  border-right: 1px solid black;
   color: white;
   animation: slideIn 0.5s forwards;
   cursor: pointer;

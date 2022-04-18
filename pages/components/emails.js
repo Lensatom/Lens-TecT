@@ -1,7 +1,8 @@
+import { search } from 'fontawesome'
 import React, { useState } from 'react'
 import styles from '../../styles/EditProfile.module.css'
 
-function EditProfile() {
+function Emails() {
 
   const [data, setData] = useState([])
   const [dropDown, setDropDown] = useState(<>&#916;</>)
@@ -11,16 +12,10 @@ function EditProfile() {
       setData([])
       setDropDown(<>&#916;</>)
     } else {
-      const info = {
-        'First Name': 'Ayomide',
-        'Middle Name': 'Samuel',
-        'Last Name': 'Atayero',
-        'Gender': 'Male',
-        'Date Of Birth': 'December 20 2004',
-      }
+      const info = ['', 'ayomidetommiwa@gmail.com', 'ayomideatayero9@gmail.com']
       const keys = Object.keys(info)
       let listed = []
-      for (let i = 0; i < keys.length; i++) {
+      for (let i = 1; i < keys.length; i++) {
         listed.push({title: keys[i], value: info[keys[i]]});
       }
       setData(listed)
@@ -31,17 +26,18 @@ function EditProfile() {
   return (
     <div className={styles.page}>
       <span className='flex'> 
-        <b> User Information </b>
+        <b> Emails </b>
         <span className='small' onClick={getOrRemoveUserData}> {dropDown} </span>
       </span>
       {data.map(d => 
         <span className='flex' style={{marginTop: '20px'}} key={d['title']}>
           <span> {d['title']} </span>
           <span style={{color: 'grey', textAlign: 'right'}}> {d['value']} </span>
+          <span> X </span>
         </span>
       )}   
     </div>
   )
 }
 
-export default EditProfile
+export default Emails
