@@ -1,0 +1,11 @@
+.page{
+  width: 60%;
+  margin-left: 10%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  border-top: 1px solid grey;
+  padding: 20px 10%;
+}

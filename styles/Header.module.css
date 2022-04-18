@@ -1,0 +1,22 @@
+.header{
+  position: fixed;
+  top: 0%;
+  width: 96%;
+  height: 60px;
+  background-color: midnightblue;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0% 2%;
+  align-items: center;
+}
+.name{
+  color: white;
+  font-weight: bold;
+  font-size: large;
+}
+.list{
+  list-style: none;
+  cursor: pointer;
+  filter: invert(90%);
+}
