@@ -1,9 +1,9 @@
 .page{
-  position: absolute;
-  top: -7%;
+  position: fixed;
+  top: 0%;
   width: 70%;
   height: 7%;
-  margin-left: 11%;
+  margin-left: 16%;
   display: flex;
   align-items: center;
   justify-content: center;

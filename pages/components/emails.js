@@ -32,7 +32,7 @@ function Emails() {
       {data.map(d => 
         <span className='flex' style={{marginTop: '20px'}} key={d['title']}>
           <span> {d['title']} </span>
-          <span style={{color: 'grey', textAlign: 'right'}}> {d['value']} </span>
+          <span style={{color: 'grey', textAlign: 'right', width: '50%', height: '25px', overflow: 'scroll'}}> {d['value']} </span>
           <span> X </span>
         </span>
       )}   

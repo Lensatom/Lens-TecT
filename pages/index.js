@@ -17,6 +17,9 @@ const firebaseApp = initializeApp({
 function Home(props) {
   const [className, setClassName] = useState([])
   useEffect(() => {
+
+    localStorage.setItem('position', 0)
+
     let mode = localStorage.getItem('mode')
     if (mode == null) {
       localStorage.setItem('mode', 'light')
@@ -27,7 +30,7 @@ function Home(props) {
     } else {
       setClassName(['darkPage', 'darkAdd', 'darkIcon'])
     }
-  })
+  }, [])
 
   const data = {
     firstName: 'Atayero'
@@ -44,7 +47,6 @@ function Home(props) {
   
   return (
     <div className={className[0]}>
-      <Header data={data}/>
       <div className={styles.slideshow}> 
         {posts.map(post =>
         <div className={styles.post} key={post.name}>
@@ -56,8 +58,14 @@ function Home(props) {
             </div>
           </div>
           <p> {post.content} </p>
-          <div className='small'>
+          <div className='small flex'>
             <span> {post.comments} Comments </span>
+            <div>
+              <span> Comment </span>
+              <span> Reply </span>
+              <span> Pin </span>
+              <span> Share </span>
+            </div>
           </div>
         </div>
         )}
@@ -65,6 +73,7 @@ function Home(props) {
       <div className={className[1]}>
         <Image src='/post.png' width={25} height={25} className={className[2]} />
       </div>
+      <Header data={data}/>
     </div>
   )
 }

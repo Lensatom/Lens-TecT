@@ -15,11 +15,7 @@ function  Organizations() {
       const keys = Object.keys(info)
       let listed = []
       for (let i = 1; i < keys.length; i++) {
-        if (info[keys[i]].length > 15) {
-          listed.push({title: keys[i], value: `${info[keys[i]].slice(0, 25)}...`});
-        } else {
-          listed.push({title: keys[i], value: info[keys[i]]});
-        }
+        listed.push({title: keys[i], value: info[keys[i]]});
       }
       setData(listed)
       setDropDown(<>&#8711;</>)
@@ -35,7 +31,7 @@ function  Organizations() {
       {data.map(d => 
         <span className='flex' style={{marginTop: '20px'}} key={d['title']}>
           <span> {d['title']} </span>
-          <span style={{color: 'grey', textAlign: 'right'}}> {d['value']} </span>
+          <span style={{color: 'grey', textAlign: 'right', width: '50%'}}> {d['value']} </span>
           <span> X </span>
         </span>
       )}   

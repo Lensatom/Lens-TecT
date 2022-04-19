@@ -1,12 +1,18 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Image from 'next/image'
 import Header from './components/header'
 import styles from '../styles/Pages.module.css'
 import EditProfile from './components/editProfile'
 import Organizations from './components/organizations'
 import Emails from './components/emails'
+import Bodies from './components/bodies'
 
 function Profile() {
+
+  useEffect(() => {
+    localStorage.setItem('position', 1)
+  }, [])
+
   return (
     <div className={styles.page}>
       <Header />
@@ -27,6 +33,7 @@ function Profile() {
           <EditProfile />
           <Emails />
           <Organizations />
+          <Bodies />
         </div>
       </div>
     </div>

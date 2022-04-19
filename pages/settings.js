@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './components/header'
 import styles from '../styles/Pages.module.css'
 
 function Settings() {
+
+  useEffect(() => {
+    localStorage.setItem('position', 5)
+  }, [])
+
   return (
     <>
       

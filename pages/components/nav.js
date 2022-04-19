@@ -5,43 +5,78 @@ import {useRouter} from 'next/router'
 
 function Nav() {
 
+  const [icons, setIcons] = useState([{
+    icon: '/none.png',
+    title: '|',
+    destination: '|'
+  }])
+
   const router = useRouter()
   const route = destination => {
     router.push(destination)
   }
+  
+  useEffect(() => {
+    let icons = [
+      {
+        icon: '/home.svg',
+        title: 'Home',
+        destination: '/'
+      },
+      {
+        icon: '/profile.png',
+        title: 'Profile',
+        destination: '/profile'
+      },
+      {
+        icon: '/test.svg',
+        title: 'Test',
+        destination: '/test'
+      },
+      {
+        icon: '/chat.svg',
+        title: 'Chat',
+        destination: '/chat'
+      },
+      {
+        icon: '/pin.svg',
+        title: 'Pinned',
+        destination: '/pinned'
+      },
+      {
+        icon: '/Settings.svg',
+        title: 'Settings',
+        destination: '/settings'
+      }
+    ]
+    let iconsCleaned = []
+    for (let i = 0; i < icons.length; i++) {
+      if (i == localStorage.getItem('position')) {
+        // nothing
+      } else {
+        iconsCleaned.push(icons[i])
+      }
+    }
+    setIcons(iconsCleaned)
+  }, [])
 
-  const [modeSrc, setModeSrc] = useState('/light.png')
-  const updateIcon = () => {
-    let mode = localStorage.getItem('mode')
-    if (mode == null) {
-      localStorage.setItem('mode', 'light')
-    }
-    mode = localStorage.getItem('mode')
-    if (mode == 'light') {
-      setModeSrc('/dark.png')
-    } else {
-      setModeSrc('/light.png')
-    }
-  }
-
-  const changeMode = () => {
-    if (localStorage.getItem('mode') == 'light') {
-      localStorage.setItem('mode', 'dark')
-    } else {
-      localStorage.setItem('mode', 'light')
-    }
-    updateIcon()
-  }
+  
 
   return (
     <div className={styles.page}>
-      <Image width={25} height={25} src='/home.svg' onClick={() => {route('/')}} alt='Home' />
-      <Image width={25} height={25} src='/profile.png' onClick={() => {route('profile')}} alt='Profile' />
-      <Image width={25} height={25} src='/test.svg' alt='Test' />
-      <Image width={25} height={25} src='/chat.svg' alt='Chat' />
-      <Image width={25} height={25} src='/pin.svg' alt='Pinned' />
-      <Image width={25} height={25} src='/settings.svg' onClick={() => {route('settings')}} alt='Settings' />
-      <Image width={25} height={25} src={modeSrc} onClick={changeMode} />
+      {icons.map(icon => 
+        <span className='flex' style={{width: '150px', justifyContent: 'space-evenly'}} onClick={() => {route(icon.destination)}}>
+          <Image width={25} height={25} src={icon.icon} alt={icon.title} className={styles.icon} />
+          {icon.title}
+        </span>
+      )}
+      <div className='flex' style={{width: '60%', justifyContent: 'space-evenly'}}>
+        <Image width={25} height={25} src='/facebook.png' onClick={() => {route('/')}} alt='Facebook' />
+        <Image width={25} height={25} src='/instagram.png' onClick={() => {route('/')}} alt='Instagram' />
+        <Image width={25} height={25} src='/linkedin.png' onClick={() => {route('/')}} alt='LinkedIn' />
+        <Image width={25} height={25} src='/tik-tok.png' onClick={() => {route('/')}} alt='Tiktok' />
+        <Image width={25} height={25} src='/youtube.png' onClick={() => {route('/')}} alt='YouTube' />
+      </div>
     </div>
   )
 }

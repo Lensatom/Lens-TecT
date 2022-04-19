@@ -1,24 +1,17 @@
 .page{
   position: fixed;
   height: 95%;
-  width: 80px;
-  left: -100px;
-  top: 61px;
-  background-color: white;
+  width: 100%;
+  top: 59px;
+  background-color: midnightblue;
+  color: lightgrey;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   border-right: 1px solid black;
-  color: white;
-  animation: slideIn 0.5s forwards;
   cursor: pointer;
 }
-@keyframes slideIn{
-  from{
-    left: -100px
-  }
-  to{
-    left: 0%
-  }
+.icon{
+  filter: invert(100%);
 }
